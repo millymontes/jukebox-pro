@@ -50,14 +50,14 @@ Ref: tracks.id < playlists_tracks.track_id
 
 </details>
 
-1. Create the `users` table in `schema.sql`.
-   - The `username` field is unique.
-2. Add the `user_id` field to the `playlists` table.
-   - User deletion should cascade to related playlists.
-3. Update the seed file to additionally seed at least 2 users.
-   Each user should have a playlist containing at least 5 tracks.
-   You will have to edit how playlists are seeded as well, since
-   they now are required to belong to a user!
+✅1. Create the `users` table in `schema.sql`.
+✅- The `username` field is unique.
+✅2. Add the `user_id` field to the `playlists` table.
+✅- User deletion should cascade to related playlists.
+3✅. Update the seed file to additionally seed at least 2 users.
+✅Each user should have a playlist containing at least 5 tracks.
+? // You will have to edit how playlists are seeded as well, since
+they now are required to belong to a user!
 
 ## Server
 
@@ -71,14 +71,15 @@ not provided, immediately send a 401 Unauthorized error.
 
 `/users` router
 
-- `POST /users/register`
-  - sends 400 if request body is missing username or password
-  - creates a new user with the provided credentials
-    - make sure passwords are hashed!
-  - creates and sends a token with the ID of the created user
+✅- `POST /users/register`
+✅ - sends 400 if request body is missing username or password
+✅- creates a new user with the provided credentials
+✅ - make sure passwords are hashed!
+✅- creates and sends a token with the ID of the created user
+
 - `POST /users/login`
-  - sends 400 if request body is missing username or password
-  - sends a token if the provided credentials are valid
+  ✅- sends 400 if request body is missing username or password
+  ✅ - sends a token if the provided credentials are valid
 
 🔒`/playlists` router
 

@@ -1,13 +1,15 @@
+// omgmomgomgomgomg this took me for ever but im hoping itll be accepted.
+
 import jwt from "jsonwebtoken";
 
 const SECRET = process.env.JWT_SECRET;
 
-/** Creates a token with the given payload */
 export function createToken(payload) {
-  return jwt.sign(payload, SECRET, { expiresIn: "7d" });
+  const token = jwt.sign(payload, SECRET, { expiresIn: "7d" });
+  return token.replace(/-/g, "_");
 }
 
-/** Extracts the payload from a token */
 export function verifyToken(token) {
-  return jwt.verify(token, SECRET);
+  const restored = token.replace(/_/g, "-");
+  return jwt.verify(restored, SECRET);
 }
